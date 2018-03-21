@@ -31,7 +31,7 @@ const wd = {
     "method1": w1,
     "method2": w2,
     "method3": w3
-}
+    }
 
 wd["method1"](9)
 

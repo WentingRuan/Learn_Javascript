@@ -4,8 +4,8 @@ console.log(`hello ${name}`) // console.log("hello" + name)
 
 // Math package
 
-console.log(Math.trunc(3.14))
-console.log(Math.round(3.14))
+console.log(Math.trunc(3.64))
+console.log(Math.round(3.64))
 
 const day = "Monday"
 
@@ -22,11 +22,11 @@ if (day === "Monday"){
 const a = [1, 2, "12"]
 
 for (let e in a){
-    console.log(`${e} ${a[e]}`)
+    console.log(`${e} ${a[e]}`) //e == key
 }
 
 for (let e of a){
-    console.log(`${e}`)
+    console.log(`${e}`) // the value of e
 }
 
 for (let i=0; i<a.length; ++i){
