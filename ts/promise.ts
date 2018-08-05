@@ -9,6 +9,8 @@ function w(){
     console.log(c.toString())
 }
 
+
+
 function w2(){
     fs.readFile(__dirname + "/a.ts", (err, c) => {
         if (!err){
@@ -16,6 +18,8 @@ function w2(){
         }
     })
 }
+
+w2()
 
 function readFileInPromise(filename: string){
     return new Promise( ( resolve, reject) => {
