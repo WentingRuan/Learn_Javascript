@@ -11,25 +11,27 @@ import kr from "koa-router"
 function createRouter(){ //定义：创建一个router
     const r = new kr() //定义router中的访问与返回ctx.body的方法
 
-    r.get("/user/:id", async ctx => { //路由规则1，如果路由get到了 /user/:id，则按照ctx.body中的步骤运行
+    r.get("/user/:id", async ctx => { //路由规则1，如果被监听的app get到了 /user/:id，则按照ctx.body中的步骤运行
         const id = Number.parseInt(ctx.params.id)
         ctx.body = {
-            id
+            "user id":id
         }
     })
 
-    r.get("/user1/:id", async ctx => { //路由规则2，如果路由get到了/user1/:id,则按照ctx.body中的步骤运行
-        const id = Number.parseInt(ctx.params.id)
+    r.get("/user1/:id", async ctx => { //路由规则2，如果被监听的app get到了/user1/:id,则按照ctx.body中的步骤运行
+        const id = Number.parseInt(ctx.params.id) //把id定义为数字
         ctx.body = {
-            id
+            "user1 id": id
         }
     })
 
-    r.post("/user2", async ctx => { //路由规则3
-        console.log(ctx.request.body)
-        ctx.body = {
+    r.post("/user2", async ctx => { //路由规则3，如果post的ctx.request.body不为空，返回ctx.request.body的内容；否则推送{}时，默认返回ctx.body的内容
+        console.log(ctx.request.body)  //如果post内容为空，被监听的9999返回一个空字符串和一个ACK (因为ctx.request.body没有收到任何信息)
+        console.log("ACK") 
+        ctx.body = {  // 只要发出post，client会返回ctx.body的内容给poster
             "a": "hello",
-            "sent": ctx.request.body
+            "sent": ctx.request.body,
+            "msg":"ctx.body runed"
         }
     })
 
