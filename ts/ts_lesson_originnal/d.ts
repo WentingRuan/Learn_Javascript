@@ -50,7 +50,6 @@ async function dingsend(response_id: number) {
 async function work(){
     let response_id = Math.round(Math.random() * 100000000)
     console.log(`response id: ${response_id}`)
-
        
     await dingsend(response_id)
     // const r = await client.get("https://www.baidu.com123")
@@ -62,5 +61,31 @@ async function work(){
     
 }
 
-work().catch(e => console.log(e)) //如果有error，返回error
+//work().catch(e => console.log(e)) //如果有error，返回error
 
+
+
+async function work2(){
+    const client2 = A.create()
+    client2.interceptors.response.use( //声明不论拿到什么数据，都要response
+        response => response,
+        response => response
+    )
+    
+    const r2 = await client2.post( //发出命令
+        "https://www.baidu.com"
+    )
+
+    const r3 = await client2.post(
+        "http://www.baidu3.com"
+    )
+    console.log(r2.status)
+    console.log(r2.data)
+    
+    console.log(r3.status)
+    console.log(r3.data)
+
+    console.log("Sended")
+}
+
+work2().catch(e => console.log(e)) //如果有error，返回error

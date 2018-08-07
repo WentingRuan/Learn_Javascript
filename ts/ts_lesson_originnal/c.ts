@@ -8,6 +8,7 @@ function a() { console.log("i"); }
 // }
 
 console.log(`${Date.now()}`)
+
 setTimeout(()=>{
     console.log(`After 3s: ${Date.now()}`)
 }, 3000)
@@ -22,11 +23,13 @@ function sleep(m: number){
 
 async function work(){
     console.log("Hi====")
-    await sleep(3000)
+    const r = await sleep(3000)
     console.log("Hi====")
+    console.log(r)
 }
 
 work()
-// sleep(1000).then(e => console.log(`AAA ${e}`))
+
+sleep(1000).then(e => console.log(`AAA ${e}`))
 
 

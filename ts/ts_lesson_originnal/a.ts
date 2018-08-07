@@ -1,7 +1,7 @@
 /* 安装大法
 npm init -y
-npm install fs-extra --save # install a package and saved in node_modules(an independent developing environment)
-npm install typescript ts-node node --save-dev # install a package only needed in development
+npm install fs-extra --save // install a package and saved in node_modules(an independent developing environment)
+npm install typescript ts-node node --save-dev // install a package only needed in development
 node_modules/.bin/ts-node xxx.ts
 */
 
