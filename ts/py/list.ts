@@ -1,3 +1,5 @@
+import { stringify } from "querystring";
+
 export function of<T>(...args: T[]){
     return args
 }
@@ -36,7 +38,7 @@ function comprehension2<VALUE_TYPE, NEW_VALUE_TYPE>(
 
     console.log("collection:"+collection+"\n")
     
-    for (let i in collection){ // == py % let i in range(len(collection)) 区别 let i of collection
+    for (let i in collection){ // == py % for i in range(len(collection)) 区别 let i of collection
         const v = collection[i]
         console.log("i:"+i)
         console.log("v:"+v)
@@ -44,23 +46,32 @@ function comprehension2<VALUE_TYPE, NEW_VALUE_TYPE>(
         console.log("type of v:"+typeof(v))
         console.log("selector(v, i):"+selector(v, i))
         if (selector(v, i)){
-            console.log("fun(v,i"+fun(v,i))
+            console.log("fun(v,i)"+fun(v,i))
             ret.push(fun(v, i))
         }
     }
-    console.log("ret")
     return ret
 }
 
 
-const c3 = comprehension2(
-    t => Number.parseInt(t)+3,
-    of("1","4","3")
+// const c3 = comprehension2( //const的时候，ts就运行了此句，哪怕最后没console.log结果
+//     t => Number.parseInt(t)+3, //数字加减
+//     of("1","4","3","1")
+// )
+
+//console.log(c3)
+
+
+const c4 = comprehension2(
+    t => t+4,
+    of("1","2", "3", "4") //ts是弱类型
 )
 
-console.log(c3)
+console.log("c4:"+c4) //只返回结果
 
 // test
+
+
 
 // function sum(a:number[]){
 //     let ret = 0
