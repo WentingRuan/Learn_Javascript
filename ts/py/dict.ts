@@ -18,7 +18,13 @@ const c = comprehension(
     (k, v) => [Number.parseInt(k)+1, v+1],
     { 1:2, 3:4, 5:6}
 )
-
 console.log(c)
+
+const c2 = comprehension(
+    (k, v) => [k+1, v],
+    { "a":2, "b":4, "c":6}
+)
+
+console.log(c2)
 
 
