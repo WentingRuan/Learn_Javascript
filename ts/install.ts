@@ -35,6 +35,7 @@ error TS7016: Could not find a declaration file for module 'fs-extra'
 
 最后， npm install typescript-formatter --save-dev 安装一个格式自动纠正的程序
 每次编译前，输入：.\node_modules\.bin\tsfmt -r
+
 */
 
 
