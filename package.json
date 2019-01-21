@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "md5": "^2.2.1",
     "ts-node": "^5.0.1",
-    "typescript": "^2.7.2"
+    "typescript": "^2.7.2",
+    "utility": "^1.15.0"
   }
 }
